@@ -33,8 +33,7 @@ app.post("/repositories", (request, response) => {
 });
 
 app.put("/repositories/:id", (request, response) => {
-  const { repositoryIndex } = request.body;
-  const { title, url, techs } = request.body;
+  const { repositoryIndex, title, url, techs } = request.body;
   const repository = {
     id: repositories[repositoryIndex].id,
     title,
