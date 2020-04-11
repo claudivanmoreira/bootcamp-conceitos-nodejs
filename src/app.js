@@ -9,6 +9,18 @@ app.use(cors());
 
 const repositories = [];
 
+function checkRepository(request, response, next) {
+  const { id } = request.params;
+  const repositoryIndex = repositories.findIndex(repository => repository.id === id);
+  if (repositoryIndex < 0) {
+    return response.status(400).json({error:"Repository not found!"})
+  }
+  request.body.repositoryIndex = repositoryIndex;
+  return next();
+}
+
+app.use("/repositories/:id", checkRepository);
+
 app.get("/repositories", (request, response) => {
   return response.json(repositories);
 });
@@ -21,14 +33,10 @@ app.post("/repositories", (request, response) => {
 });
 
 app.put("/repositories/:id", (request, response) => {
-  const { id } = request.params;
-  const repositoryIndex = repositories.findIndex(repository => repository.id === id);
-  if (repositoryIndex < 0) {
-    return response.status(400).json({error:"Repository not found!"})
-  }
+  const { repositoryIndex } = request.body;
   const { title, url, techs } = request.body;
   const repository = {
-    id,
+    id: repositories[repositoryIndex].id,
     title,
     url,
     techs,
@@ -39,21 +47,13 @@ app.put("/repositories/:id", (request, response) => {
 });
 
 app.delete("/repositories/:id", (request, response) => {
-  const { id } = request.params;
-  const repositoryIndex = repositories.findIndex(repository => repository.id === id);
-  if (repositoryIndex < 0) {
-    return response.status(400).json({error:"Repository not found!"})
-  }
+  const { repositoryIndex } = request.body;
   repositories.splice(repositoryIndex, 1);
   return response.status(204).send();
 });
 
 app.post("/repositories/:id/like", (request, response) => {
-  const { id } = request.params;
-  const repositoryIndex = repositories.findIndex(repository => repository.id === id);
-  if (repositoryIndex < 0) {
-    return response.status(400).json({error:"Repository not found!"})
-  }
+  const { repositoryIndex } = request.body;
   repositories[repositoryIndex].likes++;
   return response.json(repositories[repositoryIndex]);
 });
