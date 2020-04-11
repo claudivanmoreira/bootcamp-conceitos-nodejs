@@ -1,0 +1,9 @@
+# bootcamp-conceitos-nodejs
+Desafio inicial do Bootcamp da Rocketseat para aplicação dos conceitos fundamentais de NodeJS.
+
+1. Conceitos NodeJS
+2. Conceitos API REST
+3. Configurando Nodemon
+4. Métodos HTTP
+5. Tipos de Parâmetros: query params, router params e body
+6. Middlewares
