@@ -1,5 +1,5 @@
 # bootcamp-conceitos-nodejs
-Desafio inicial do Bootcamp da Rocketseat para aplicação dos conceitos fundamentais de NodeJS.
+Desafio inicial do Bootcamp da [Rocketseat](https://rocketseat.com.br/gostack) para aplicação dos conceitos fundamentais de NodeJS.
 
 1. Conceitos NodeJS
 2. Conceitos API REST
