@@ -7,3 +7,10 @@ Desafio inicial do Bootcamp da [Rocketseat](https://rocketseat.com.br/gostack) p
 4. Métodos HTTP
 5. Tipos de Parâmetros: query params, router params e body
 6. Middlewares
+
+#### Instalação ####
+1. `yarn install`
+
+#### Exceução ####
+1. `yarn dev`
+
