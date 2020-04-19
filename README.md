@@ -11,6 +11,6 @@ Desafio inicial do Bootcamp da [Rocketseat](https://rocketseat.com.br/gostack) p
 #### Instalação ####
 1. `yarn install`
 
-#### Exceução ####
+#### Execução ####
 1. `yarn dev`
 
